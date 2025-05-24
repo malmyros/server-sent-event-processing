@@ -58,7 +58,9 @@ public class EventService {
                     SseEmitter.SseEventBuilder sseEventBuilder = SseEmitter.event()
                             .id(String.valueOf(i))
                             .data("SSE MVC - " + LocalTime.now())
-                            .name("sse event - mvc");
+                            .name("sse event - mvc")
+                                    .reconnectTime(Duration.ofSeconds(3).toMillis());
+
                     sseEmitter.send(sseEventBuilder);
                     Thread.sleep(Duration.ofSeconds(1));
                     i++;

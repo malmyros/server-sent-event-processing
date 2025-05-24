@@ -38,6 +38,7 @@ public class EventController {
                         .id(String.valueOf(sequence))
                         .event("periodic-event")
                         .data("SSE - " + LocalTime.now())
+                        .retry(Duration.ofSeconds(3))
                         .build());
     }
 
